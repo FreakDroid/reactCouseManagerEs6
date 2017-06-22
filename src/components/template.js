@@ -5,15 +5,16 @@ class Template extends React.Component{
   render(){
     return (
       <div className="container-fluid">
-        <Header />
+        <Header/>
         {this.props.children}
+
       </div>
     );
   }
 }
 
-Template.PropTypes = {
-  children : PropTypes.node
+Template.propTypes = {
+  children : PropTypes.object.isRequired
 };
 
 export default Template;
