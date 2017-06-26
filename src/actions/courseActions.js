@@ -8,6 +8,7 @@ export function loadCoursesSuccess(courses){
 export function updateCourseSuccess(courses){
   return {type: types.UPDATE_COURSES_SUCCESS, courses};
 }
+
 export function createCourseSuccess(courses){
   return {type: types.CREATE_COURSES_SUCCESS, courses};
 }
@@ -22,12 +23,11 @@ export function loadCourses() {
   };  
 }
 
-
 export function saveCourse(course){
   return function(dispatch, getState){
     return courseApi.saveCourse(course).then(savedCourse => {
       course.id ? dispatch(updateCourseSuccess(savedCourse)) :
-      dispatch(createCourseSuccess(savedCourse))
+      dispatch(createCourseSuccess(savedCourse));
     }).catch(error => {
       throw(error);
     });
