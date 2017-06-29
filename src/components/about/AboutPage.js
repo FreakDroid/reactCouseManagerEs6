@@ -1,11 +1,11 @@
 import React from 'react';
 
-class AboutPage extends React.Component{
-  render(){
-    return(
-      <div className="jumbotron">
+class AboutPage extends React.Component {
+  render() {
+    return (
+      <div>
         <h1>About</h1>
-        <p>About page</p>
+        <p>This application uses React, Redux, React Router and a variety of other helpful libraries.</p>
       </div>
     );
   }

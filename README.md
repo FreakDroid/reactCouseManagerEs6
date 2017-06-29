@@ -1,1 +1,1 @@
-# reactCouseManagerEs6
+React ES6 Course
