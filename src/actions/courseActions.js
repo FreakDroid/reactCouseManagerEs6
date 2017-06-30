@@ -28,7 +28,9 @@ export function loadCourses() {
 export function saveCourse(course) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
+    console.log('course ', course);
     return courseApi.saveCourse(course).then(course => {
+      console.log('course.id ', course.id);
       course.id ? dispatch(updateCourseSuccess(course)) :
         dispatch(createCourseSuccess(course));
     }).catch(error => {
