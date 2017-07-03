@@ -4,19 +4,29 @@ import {bindActionCreators} from 'redux';
 import AuthorsList from './AuthorsList';
 import * as authorActions from '../../actions/authorActions';
 import {browserHistory} from 'react-router'; 
+import toastr from 'toastr';
 
 class AuthorsPage extends React.Component{
   constructor(props, context){
     super(props, context);
     
     this.redirectToAddAuthorPage = this.redirectToAddAuthorPage.bind(this);
+    this.deleteAuthor = this.deleteAuthor.bind(this)
   }
   
   redirectToAddAuthorPage(){
     browserHistory.push('/author');
   }
-  deleteAuthor(){
-    console.log('Deleting...')
+  redirect(){
+    browserHistory.push('/authors');
+  }
+  
+  deleteAuthor(author){
+    this.props.actions.deleteAuthor(author).then(()=> this.redirect())
+    .catch(error => {
+      toastr.error(error);
+      this.setState({saving: false});
+    });
   }
   
   render(){
@@ -28,7 +38,7 @@ class AuthorsPage extends React.Component{
         value="Add Author"
         className="btn btn-primary"
         onClick={this.redirectToAddAuthorPage} />
-        <AuthorsList Authors={authors} deleteAuthor={deleteAuthor}/>
+        <AuthorsList Authors={authors} deleteAuthor={this.deleteAuthor}/>
       </div>
     );
   }
@@ -37,8 +47,7 @@ class AuthorsPage extends React.Component{
 
 AuthorsPage.propTypes ={
   authors: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired,
-  deleteAuthor: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

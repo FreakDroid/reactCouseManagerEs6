@@ -8,10 +8,12 @@ const AuthorRow = ({author, deleteAuthor}) =>{
       <td>{author.lastName}</td>
       <td><Link to={'/author/' + author.id}>Edit</Link></td>
       <td>
-      <input
-        type="submit"
-        className="btn btn-danger"
-        onClick={deleteAuthor}/></td>
+      <button onClick={deleteAuthor.bind(this, author)} className="btn btn-danger">
+        Delete
+      </button>
+      </td>
+        
+        
     </tr>
   );
 };
