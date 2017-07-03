@@ -15,6 +15,9 @@ class AuthorsPage extends React.Component{
   redirectToAddAuthorPage(){
     browserHistory.push('/author');
   }
+  deleteAuthor(){
+    console.log('Deleting...')
+  }
   
   render(){
     const {authors} = this.props;
@@ -25,7 +28,7 @@ class AuthorsPage extends React.Component{
         value="Add Author"
         className="btn btn-primary"
         onClick={this.redirectToAddAuthorPage} />
-        <AuthorsList Authors={authors} />
+        <AuthorsList Authors={authors} deleteAuthor={deleteAuthor}/>
       </div>
     );
   }
@@ -34,7 +37,8 @@ class AuthorsPage extends React.Component{
 
 AuthorsPage.propTypes ={
   authors: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  deleteAuthor: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

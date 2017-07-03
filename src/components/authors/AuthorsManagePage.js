@@ -19,6 +19,13 @@ export class AuthorManagePage extends React.Component{
     this.updateAuthorState = this.updateAuthorState.bind(this);
   }
   
+  componentWillReceiveProps(nextProps) {
+    if (this.props.author.id != nextProps.author.id) {
+      // Necessary to populate form when existing course is loaded directly.
+      this.setState({authors: Object.assign({}, nextProps.author)});
+    }
+  }
+  
   updateAuthorState(event) {
     const field = event.target.name;
     let author = this.state.author;
@@ -57,6 +64,12 @@ export class AuthorManagePage extends React.Component{
   }
 }
 
+function getAuthor(authors, authorId){
+  const author = authors.filter(author => author.id === authorId);
+  if(author.length) return author[0];
+  return null;
+}
+
 AuthorManagePage.propTypes = {
   author: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
@@ -68,8 +81,14 @@ AuthorManagePage.contextTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
+  let authorId = ownProps.params.id;
   
   let author = {id: '', firstName: '', lastName: ''};
+  
+  if (authorId && state.authors.length > 0) {
+      author = getAuthor(state.authors, authorId);
+  }
+
   return {
     author: author
   };
