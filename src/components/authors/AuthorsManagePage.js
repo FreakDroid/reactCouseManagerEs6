@@ -27,10 +27,35 @@ export class AuthorManagePage extends React.Component{
   }
   
   updateAuthorState(event) {
-    const field = event.target.name;
-    let author = this.state.author;
-    author[field] = event.target.value;
-    return this.setState({author: author});
+    // const field = event.target.name;
+    // let author = this.state.author;
+    // author[field] = event.target.value;
+    // return this.setState({author: author});
+    
+    const hasSubField = event.target.name.split('.');
+    console.log(hasSubField)
+    if (hasSubField.length > 1) {
+      let author = this.state.author;
+      author[hasSubField[0]][hasSubField[1]] = event.target.value;
+      return this.setState({author:author});
+    }
+    // else if(hasSubField.length > 2){
+    //     // let user = this.state.user;
+    //     // user.address.geo.lat = event.target.value;
+    //     // return this.setState({user:user});
+    //     
+    //     
+    //     let user = Object.assign({}, this.state.user);
+    //     user.address.geo.lat = event.target.value;
+    //     return this.setState({user:user});
+    // 
+    // }
+    else {
+      const field = event.target.name;
+      let author = this.state.user;
+      author[field] = event.target.value;
+      return this.setState({author:author });
+    }
   }
   
   redirect() {
@@ -83,7 +108,7 @@ AuthorManagePage.contextTypes = {
 function mapStateToProps(state, ownProps) {
   let authorId = ownProps.params.id;
   
-  let author = {id: '', firstName: '', lastName: ''};
+  let author = {id: '', firstName: '', lastName: '', address: { city: ''}};
   
   if (authorId && state.authors.length > 0) {
       author = getAuthor(state.authors, authorId);

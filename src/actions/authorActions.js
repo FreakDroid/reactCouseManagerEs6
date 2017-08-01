@@ -30,7 +30,7 @@ export function loadAuthors() {
 }
 
 export function saveAuthor(author){
-  return (dispatch, getSate) => {
+  return (dispatch, getState) => {
     dispatch(beginAjaxCall());
     return AuthorApi.saveAuthor(author).then(author => {
       // console.log('author Save ', author); 

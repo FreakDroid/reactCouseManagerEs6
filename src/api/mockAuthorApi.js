@@ -7,17 +7,26 @@ const authors = [
   {
     id: 'cory-house',
     firstName: 'Cory',
-    lastName: 'House'
+    lastName: 'House',
+    address: {
+      city: 'Caracas'
+    }
   },
   {
     id: 'scott-allen',
     firstName: 'Scott',
-    lastName: 'Allen'
+    lastName: 'Allen',
+    address: {
+      city: 'Caracas'
+    }
   },
   {
     id: 'dan-wahlin',
     firstName: 'Dan',
-    lastName: 'Wahlin'
+    lastName: 'Wahlin',
+    address: {
+      city: 'Caracas'
+    }
   }
 ];
 

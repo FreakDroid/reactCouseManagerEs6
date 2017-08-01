@@ -20,6 +20,13 @@ const AuthorForm = ({author, onSave, errors, saving, onChange}) =>{
           onChange={onChange}
           error={errors.lastName}/>
           
+    <TextInput
+               name="address.city"
+               label="city"
+               value={author.address.city}
+               onChange={onChange}
+               error={errors.lastName}/>          
+          
       <input
             type="submit"
             disabled={saving}
