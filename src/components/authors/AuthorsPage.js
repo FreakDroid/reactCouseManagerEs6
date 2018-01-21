@@ -30,7 +30,7 @@ class AuthorsPage extends React.Component{
   }
   
   render(){
-    const {authors} = this.props;
+    const authors = this.props.authors;
     return(
       <div>
         <h1>Authors</h1>

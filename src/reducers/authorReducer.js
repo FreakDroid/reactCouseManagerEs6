@@ -15,7 +15,7 @@ export default function authorReducer(state = initialState.authors, action) {
     case types.UPDATE_AUTHOR_SUCCESS:
       return [
           ...state.filter(author => author.id !== action.author.id),
-          Object.assign({}, action.author)
+          JSON.parse(JSON.stringify(action.author))
         ];
     case types.DELETE_AUTHOR_SUCCESS:
       var existingAuthorIndex = state.findIndex(a => a.id == action.author.id);

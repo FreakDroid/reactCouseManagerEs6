@@ -21,8 +21,8 @@ export class AuthorManagePage extends React.Component{
   
   componentWillReceiveProps(nextProps) {
     if (this.props.author.id != nextProps.author.id) {
-      // Necessary to populate form when existing course is loaded directly.
-      this.setState({authors: Object.assign({}, nextProps.author)});
+      const author = Object.assign({}, nextProps.author);
+      this.setState({author }); // fíjate que habías escrito 'authors'
     }
   }
   
@@ -68,8 +68,8 @@ export class AuthorManagePage extends React.Component{
     event.preventDefault();
     
     this.setState({saving: true});
-    
-    this.props.actions.saveAuthor(this.state.author).then(() => this.redirect())
+    const autor = Object.assign({}, this.state.author); 
+    this.props.actions.saveAuthor(autor).then(() => this.redirect())
     .catch(error => {
       toastr.error(error);
       this.setState({saving: false});

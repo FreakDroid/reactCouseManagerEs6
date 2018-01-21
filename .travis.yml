@@ -1,0 +1,11 @@
+dist: precise
+lenguaje: node_js
+node_js:
+  - 8
+  - 9
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install
+
