@@ -11,6 +11,7 @@ export function saveAuthorsSuccess(author) {
 }
 
 export function updateAuthorsSuccess(author) {
+  console.log('Im dispatching');
   return {type: types.UPDATE_AUTHOR_SUCCESS, author};
 }
 
@@ -33,7 +34,7 @@ export function saveAuthor(author){
   return (dispatch, getState) => {
     dispatch(beginAjaxCall());
     return AuthorApi.saveAuthor(author).then(author => {
-      // console.log('author Save ', author); 
+      console.log('author Save ', author); 
       author.id ? dispatch(updateAuthorsSuccess(author)) : dispatch(saveAuthorsSuccess(author));
     }).catch(error =>{
       dispatch(ajaxCallError(error));
