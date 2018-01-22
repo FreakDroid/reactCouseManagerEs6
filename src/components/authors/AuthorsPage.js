@@ -11,7 +11,7 @@ class AuthorsPage extends React.Component{
     super(props, context);
     
     this.redirectToAddAuthorPage = this.redirectToAddAuthorPage.bind(this);
-    this.deleteAuthor = this.deleteAuthor.bind(this)
+    this.deleteAuthor = this.deleteAuthor.bind(this);
   }
   
   redirectToAddAuthorPage(){
