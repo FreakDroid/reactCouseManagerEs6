@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel open:source lint:watch test:watch",
+    "start": "npm-run-all --parallel open:source",
+    "startdev": "npm-run-all --parallel open:source lint:watch test:watch",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
     "open:source": "babel-node tools/srcServer.js",
