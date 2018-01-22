@@ -43,7 +43,8 @@
     "babel-register": "6.8.0",
     "colors": "1.1.2",
     "npm-run-all": "1.8.0",
-    "mocha": "2.4.5"
+    "mocha": "2.4.5",
+    "express": "4.13.4"
   },
   "devDependencies": {
     "cheerio": "0.22.0",
@@ -57,7 +58,6 @@
     "eslint-watch": "2.1.11",
     "eventsource-polyfill": "0.9.6",
     "expect": "1.19.0",
-    "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
     "jsdom": "8.5.0",
