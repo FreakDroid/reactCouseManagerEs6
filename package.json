@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all --parallel open:source lint:watch test:watch",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
@@ -41,7 +40,9 @@
     "babel-preset-react": "6.5.0",
     "babel-preset-react-hmre": "1.1.1",
     "babel-register": "6.8.0",
-    "colors": "1.1.2"
+    "colors": "1.1.2",
+    "npm-run-all": "1.8.0",
+    "mocha": "2.4.5"
   },
   "devDependencies": {
     "cheerio": "0.22.0",
@@ -59,9 +60,7 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
     "jsdom": "8.5.0",
-    "mocha": "2.4.5",
     "nock": "8.0.0",
-    "npm-run-all": "1.8.0",
     "open": "0.0.5",
     "react-addons-test-utils": "15.0.2",
     "redux-immutable-state-invariant": "1.2.3",
