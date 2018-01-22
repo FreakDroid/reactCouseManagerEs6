@@ -33,7 +33,6 @@ export class AuthorManagePage extends React.Component{
     // return this.setState({author: author});
     
     const hasSubField = event.target.name.split('.');
-    console.log(hasSubField)
     if (hasSubField.length > 1) {
       let author = this.state.author;
       author[hasSubField[0]][hasSubField[1]] = event.target.value;
